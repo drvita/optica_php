@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title><?=$title?></title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="<?=base_url('lib/images/apple-touch-icon.png')?>"/>
+<link rel="stylesheet" href="<?=base_url('lib/css/themes/blitzer/jquery-ui.min.css')?>" />
+<link rel="stylesheet" href="<?=base_url('lib/css/ui.jqgrid.css')?>" />
+<link rel="stylesheet" href="<?=base_url('lib/css/bootstrap.min.css')?>">
+<link rel="stylesheet" href="<?=base_url('lib/css/animate.css')?>" />
+<link rel="stylesheet" href="<?=base_url('lib/css/style.css')?>" />
+<? if(isset($cssf) && count($cssf)){
+		foreach ($cssf as $css){
+			if(empty($css['href'])) continue;
+			if(!filter_var($css['href'], FILTER_VALIDATE_URL)) $css['href']=base_url($css['href']); ?>
+<link rel="stylesheet"<?foreach($css as $key=>$value) echo " $key='$value'"?>/>
+<?		}
+	}?>
+<script type="text/javascript" src="<?=base_url('lib/js/jquery-2.1.1.min.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/jquery-ui-1.9.2.min.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/jquery.noty.packaged.min.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/jquery.ui-contextmenu.min.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/bootstrap.min.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/jquery.cookie.js')?>"></script>
+<script type="text/javascript" src="<?=base_url('lib/js/system.js')?>"></script>
+<? if(isset($scripts) && count($scripts)){
+		foreach ($scripts as $script){
+			if(empty($script['src'])) continue;
+			if(!filter_var($script['src'], FILTER_VALIDATE_URL)) $script['src']=base_url($script['src']);?>
+<script type="text/javascript"<?foreach($script as $key=>$value) echo " $key='$value'"?>></script>
+<?}}?>
+<script>var base_url = '<?=base_url()?>';</script>
+</head>
+<body id="htmlContent">
+	<div id="container-fluid">
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid navbar-header">
+			<?if(!empty($user['iduser'])):?>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<?endif?>
+			<img src="<?=base_url('lib/images/logo_oa_small.png')?>" title="openAdmin" class="img-responsive"/>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row-fluid">
+		<?if(!empty($user['iduser'])):?>
+		<div class="col-md-3">
+			<div id="sidebar"class="collapse navbar-collapse"id="navbar-menu">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-credit-card"></span>
+						<strong>Bienvenido:</strong> <?=$user['name']?>
+					</div>
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked red">
+						<?//if($user['kindof']==0 || $user['kindof']==2):?>
+							<!--
+							<li class="<?//=($menu=='ingresos')?"dropdown active":"dropdown";?>"><a href="javascript:void(0)"class="dropdown-toggle"data-toggle="dropdown">
+							<span class="glyphicon glyphicon-export"></span> Facturaci&oacute;n <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="<?//=base_url('ingresos')?>">Facturas</a></li>
+									<li><a href="<?//=base_url('ingresos/report')?>">Reportes</a></li>
+								</ul>
+							</li>
+							-->
+						<?//endif?>	
+							<li class="<?=($menu=='catalogos')?"dropdown active":"dropdown";?>"><a href="javascript:void(0)"class="dropdown-toggle"data-toggle="dropdown">
+							<span class="glyphicon glyphicon-list-alt"></span> Catalogos <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="<?=base_url('catalogos/contact')?>">Contactos</a></li>
+									<li><a href="<?=base_url('catalogos/store_items')?>">Productos (almacen)</a></li>
+									<li><a href="<?=base_url('catalogos/store_unit')?>">Unidad (almacen)</a></li>
+									<li><a href="<?=base_url('catalogos/store_brand')?>">Marcas (almacen)</a></li>
+									<li><a href="<?=base_url('catalogos/store_catid')?>">Categoria (almacen)</a></li>
+								</ul>
+							</li>
+							<li class="<?=($menu=='report')?"dropdown active":"dropdown";?>"><a href="javascript:void(0)"class="dropdown-toggle"data-toggle="dropdown">
+							<span class="glyphicon glyphicon-export"></span> Reportes <span class="caret"></span>
+							</a>
+								<?if($user['kindof']==2 || !$user['kindof']):?>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="<?=base_url('report/print_nota')?>">Notas de venta</a></li>
+								</ul>
+								<?endif?>
+							</li>
+						<?if(!$user['kindof']):?>
+							<li class="<?=($menu=='store')?"dropdown active":"dropdown";?>"><a href="javascript:void(0)"class="dropdown-toggle"data-toggle="dropdown">
+							<span class="glyphicon glyphicon-tag"></span> Almacen <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="<?=base_url('store')?>">Articulos</a></li>
+									<li><a href="<?=base_url('store/lentes')?>">Inventario (Lentes)</a></li>
+									<li><a href="<?=base_url('store/pedidos')?>">Pedidos</a></li>
+								</ul>
+							</li>
+							<li<?=($menu=='settings')?" class=\"active\"":"";?>><a href="<?=base_url('settings')?>">
+							<span class="glyphicon glyphicon-wrench"></span> Configuraciones
+							</a></li>
+							<li<?=($menu=='home')?" class=\"active\"":"";?>><a href="<?=base_url('home/users')?>">
+							<span class="glyphicon glyphicon-user"></span> Usuarios
+							</a></li>
+						<?endif?>
+						<?if($user['kindof']==1):?>
+							<li<?=($menu=='optica')?" class=\"active\"":"";?>><a href="<?=base_url('optica')?>">
+							<span class="glyphicon glyphicon-eye-open"></span> Examen
+							</a></li>
+						<?endif?>
+						<?if($user['kindof']==2):?>
+							<li class="<?=($menu=='inbox')?"active":"";?>"><a href="<?=base_url('inbox')?>">
+							<span class="glyphicon glyphicon-inbox"></span> Caja
+							</a></li>
+						<?endif?>
+							<li><a href="javascript:void(0)"onclick="buttonoutsystem()">
+							<span class="glyphicon glyphicon-off"></span> Cerrar el sistema
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			<span class="glyphicon glyphicon-eye-open"></span> SISTEMA DE PRUEBAS
+			</div>
+		</div>
+		<?endif?>
+			<div id="content" class="col-lg-<?=(!empty($user['name']))?'9':'12'?>">
+			Main: <pre><?print_r($main)?></pre>
+				<?if(isset($main) && count($main) && is_array($main)):?>
+				<div class="well well-sm">
+					<div class="btn-group">
+						<?foreach($main as $item):?>
+							<?if(!empty($item['label'])):?>
+								<button type="button" class="btn btn-<?=(isset($item['type']))?$item['type']:'default'?>" onclick="<?=(isset($item['click']))?$item['click']:''?>">
+								<?if(isset($item['class'])):?>
+									<span class="glyphicon glyphicon-<?=$item['class']?>"></span>
+								<?endif?>
+									<?=(isset($item['label']))?$item['label']:''?>
+								</button>
+							<?endif?>
+						<?endforeach?>
+					</div>
+				</div>
+				<?endif?>
+			

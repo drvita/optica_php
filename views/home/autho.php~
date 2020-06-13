@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-3">
+	<!--Formulario de acceso-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span class="glyphicon glyphicon-credit-card"></span> Acceso al sistema
+		</div>
+		<div class="panel-body">
+			<?$atributos=array('class'=>'form-horizontal','role'=>'form','name'=>'formAutho')?>
+			<?=form_open('home/session',$atributos)?>
+			<div class="form-group">
+				<label class="sr-only" for="user">Usuario</label>
+				<input pattern="^[a-zA-Z0-9\s.]{5,20}"class="form-control"id="user"placeholder="Usuario"type="text"name="user"/>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="pass">Password</label>
+				<input pattern="^[a-zA-Z0-9\s.#]{8,16}"class="form-control"id="pass"placeholder="Contraseña"type="password"name="pass"/>
+			</div>
+			<p style="text-align:right">
+				<button type="submit" class="btn btn-success">
+					<span class="glyphicon glyphicon-check"></span> Ingresar
+				</button>
+			</p>
+			</form>
+		</div>
+	</div>
+	<!--fin de formulario de acceso-->
+	</div>
+	<?=str_replace('base/','',BASEPATH)?>
+</div>

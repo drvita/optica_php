@@ -1,0 +1,23 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2015-03-26 10:53 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 10:53 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:01 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:02 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:06 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:06 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:09 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:10 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:14 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:16 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:17 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:18 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:23 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:23 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:25 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:25 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:32 --> 404 Page Not Found --> favicon.ico
+ERROR - 2015-03-26 12:32 --> 404 Page Not Found --> favicon.ico
+ERROR - 2015-03-26 12:32 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:34 --> 404 Page Not Found --> basic2015
+ERROR - 2015-03-26 12:34 --> 404 Page Not Found --> basic2015
